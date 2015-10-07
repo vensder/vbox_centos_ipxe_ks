@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -ex
 
 VBOX=`which VirtualBox`
@@ -34,8 +35,7 @@ ${VBOXMANAGE} modifyvm "${VM}" --memory 768
 #${VBOXMANAGE} modifyvm ${VM} --nattftpfile1 "pxelinux.0"
 
 
-
-${VBOXMANAGE} modifyvm ${VM} --macaddress1 00000000C700 
+${VBOXMANAGE} modifyvm ${VM} --macaddress1 00000000C700
 
 
 # Create IDE controller and attach DVD
@@ -43,12 +43,10 @@ ${VBOXMANAGE} storagectl ${VM} --name "IDE controller" --add ide
 ${VBOXMANAGE} storageattach ${VM} --storagectl "IDE controller"  --port 0 --device 0 --type dvddrive --medium $isofile
 
 
-
 ## Create the boot configuration (need machine UUID)
 UUID=`${VBOXINFO} |awk '/UUID/ {print $2}'|head -n 1`
 echo $UUID
 #ln -s ./pxelinux.cfg/pxe_menu.cfg ./pxelinux.cfg/${UUID}
-
 
 
 ## Start it up

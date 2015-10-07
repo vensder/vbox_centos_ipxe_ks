@@ -5,7 +5,7 @@ from bottle import route, run, template, static_file
 
 
 #Get the vboxnet0 ipaddr
-intf = 'vboxnet0'
+#intf = 'vboxnet0'
 intf = 'virbr0'
 intf_ip = subprocess.check_output(['ip', 'address', 'show', 'dev', intf]).split()
 intf_ip = intf_ip[intf_ip.index('inet') + 1].split('/')[0]

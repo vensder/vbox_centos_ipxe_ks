@@ -52,7 +52,10 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-
-
 #python
 *.pyc
+
+#Subdir
+images/
+ipxe/
+
